@@ -1,0 +1,10 @@
+td,th{
+    text-align: center;vertical-align: middle;
+}
+table td ,table th{
+    border: 1px solid black !important;
+
+}
+span{
+    color: red;
+}
