@@ -78,7 +78,9 @@ sommeTableTotale
      
     })
   }
-
+  getFile(){
+    return this.rnpService.uploadFile1('pdf')
+  }
   onEditRNP(p:any){
  
     let url = p['_links'].self.href;

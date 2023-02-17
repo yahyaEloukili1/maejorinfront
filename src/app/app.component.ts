@@ -10,11 +10,10 @@ export class AppComponent {
   token
   constructor(public pdiService: RnpService,private router: Router){
     this.met()
-    console.log(pdiService.jwtToken,"1111111111111111111111111111")
   }
   met(){
    this.token = this.pdiService.loadToken()
-   console.log(this.token,"333333333333")
+   console.log(this.token,"ksksksksksk")
   }
   logout(){
     this.pdiService.logout()

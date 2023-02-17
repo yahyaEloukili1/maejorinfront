@@ -12,9 +12,8 @@ export class AuthGuard implements CanActivate {
       return true
     }
     else{
-      this.router.navigateByUrl('rnp/login')
+      this.router.navigateByUrl('elections/login')
       return false
     }
   }
-  
 }

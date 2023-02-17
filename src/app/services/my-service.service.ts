@@ -1,11 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { saveAs } from 'file-saver';
 @Injectable({
   providedIn: 'root'
 })
 export class RnpService {
-  host= 'http://localhost:8088'
+  host= 'http://localhost:8087'
   // host ='//10.39.6.25:8088'
   jwtToken = null;
  constructor(private http: HttpClient) { }
@@ -83,6 +84,21 @@ uploadFile(i){
   return this.http.get(this.host+'/report/pdf/'+i)
 }
 
+// uploadFile1(){
+//   return this.http.get(this.host+'/report/pdf/')
+// }
+
+
+uploadFile1(format: string) {
+  const url = `${this.host}/report/${format}`;
+  return this.http.get(url, {
+    responseType: 'blob' // set the response type to 'blob'
+  }).subscribe((blob: Blob) => {
+    saveAs(blob, `report.${format}`); // download the blob as a file
+  });
+}
+
+
 logout(){
   this.jwtToken = null
   localStorage.removeItem('token')
@@ -91,5 +107,10 @@ logout(){
 loggedIn(){
   return !!localStorage.getItem('token')
 }
+
+
+
+
+
 
 }
