@@ -7,7 +7,7 @@ import { saveAs } from 'file-saver';
 })
 export class RnpService {
   host= 'http://localhost:8087'
-  // host ='//10.39.6.25:8088'
+  // host ='//10.39.6.25:8087'
   jwtToken = null;
  constructor(private http: HttpClient) { }
 
